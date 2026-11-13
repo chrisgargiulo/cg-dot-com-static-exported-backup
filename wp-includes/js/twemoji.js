@@ -24,9 +24,9 @@ var twemoji = (function (
     twemoji = {
 
 
-    /////////////////////////
-    //      properties     //
-    /////////////////////////
+      /////////////////////////
+      //      properties     //
+      /////////////////////////
 
       // default assets url, by default will be jsDelivr CDN
       base: 'https://cdn.jsdelivr.net/gh/jdecked/twemoji@17.0.1/assets/',
@@ -79,9 +79,9 @@ var twemoji = (function (
       },
 
 
-    /////////////////////////
-    //       methods       //
-    /////////////////////////
+      /////////////////////////
+      //       methods       //
+      /////////////////////////
 
       /**
        * User first: used to remove missing images
@@ -164,13 +164,13 @@ var twemoji = (function (
        * @example
        *
        *  twemoji.parse("I \u2764\uFE0F emoji!");
-       *  // I <img class="emoji" draggable="false" alt="❤️" src="/assets/2764.gif"/> emoji!
+       *  // I <img class="emoji" draggable="false" alt="❤️" src="../assets/2764.gif"/> emoji!
        *
        *
        *  twemoji.parse("I \u2764\uFE0F emoji!", function(iconId, options) {
        *    return '/assets/' + iconId + '.gif';
        *  });
-       *  // I <img class="emoji" draggable="false" alt="❤️" src="/assets/2764.gif"/> emoji!
+       *  // I <img class="emoji" draggable="false" alt="❤️" src="../assets/2764.gif"/> emoji!
        *
        *
        * twemoji.parse("I \u2764\uFE0F emoji!", {
@@ -179,7 +179,7 @@ var twemoji = (function (
        *     return '/assets/' + options.size + '/' + iconId + options.ext;
        *   }
        * });
-       *  // I <img class="emoji" draggable="false" alt="❤️" src="/assets/72x72/2764.png"/> emoji!
+       *  // I <img class="emoji" draggable="false" alt="❤️" src="../assets/72x72/2764.png"/> emoji!
        *
        */
       parse: parse,
@@ -309,12 +309,12 @@ var twemoji = (function (
       // ignore all nodes that are not type 1, that are svg, or that
       // should not be parsed as script, style, and others
       else if (nodeType === 1 && !('ownerSVGElement' in subnode) &&
-          !shouldntBeParsed.test(subnode.nodeName.toLowerCase())) {
+        !shouldntBeParsed.test(subnode.nodeName.toLowerCase())) {
 
         // WP start
         // Use doNotParse() callback if set.
-        if ( twemoji.doNotParse && twemoji.doNotParse( subnode ) ) {
-            continue;
+        if (twemoji.doNotParse && twemoji.doNotParse(subnode)) {
+          continue;
         }
         // WP end
 
@@ -518,7 +518,7 @@ var twemoji = (function (
 
   function fromCodePoint(codepoint) {
     var code = typeof codepoint === 'string' ?
-          parseInt(codepoint, 16) : codepoint;
+      parseInt(codepoint, 16) : codepoint;
     if (code < 0x10000) {
       return fromCharCode(code);
     }
@@ -531,7 +531,7 @@ var twemoji = (function (
 
   function parse(what, how) {
     if (!how || typeof how === 'function') {
-      how = {callback: how};
+      how = { callback: how };
     }
 
     // WP start
@@ -544,13 +544,13 @@ var twemoji = (function (
     // if first argument is string, inject html <img> tags
     // otherwise use the DOM tree and parse text nodes only
     return (typeof what === 'string' ? parseString : parseNode)(what, {
-      callback:   how.callback || defaultImageSrcGenerator,
+      callback: how.callback || defaultImageSrcGenerator,
       attributes: typeof how.attributes === 'function' ? how.attributes : returnNull,
-      base:       typeof how.base === 'string' ? how.base : twemoji.base,
-      ext:        how.ext || twemoji.ext,
-      size:       how.folder || toSizeSquaredAsset(how.size || twemoji.size),
-      className:  how.className || twemoji.className,
-      onerror:    how.onerror || twemoji.onerror
+      base: typeof how.base === 'string' ? how.base : twemoji.base,
+      ext: how.ext || twemoji.ext,
+      size: how.folder || toSizeSquaredAsset(how.size || twemoji.size),
+      className: how.className || twemoji.className,
+      onerror: how.onerror || twemoji.onerror
     });
   }
 
