@@ -46338,8 +46338,8 @@ The screen with id ${screen.id} will not be added.`) : void 0;
        * import { Navigator } from '@wordpress/components';
        *
        * const MyNavigation = () => (
-       *   <Navigator initialPath="../">
-       *     <Navigator.Screen path="../">
+       *   <Navigator initialPath="../index.html">
+       *     <Navigator.Screen path="../index.html">
        *       <p>This is the home screen.</p>
        *        <Navigator.Button path="../child">
        *          Navigate to child screen.
@@ -46369,8 +46369,8 @@ The screen with id ${screen.id} will not be added.`) : void 0;
        * import { Navigator } from '@wordpress/components';
        *
        * const MyNavigation = () => (
-       *   <Navigator initialPath="../">
-       *     <Navigator.Screen path="../">
+       *   <Navigator initialPath="../index.html">
+       *     <Navigator.Screen path="../index.html">
        *       <p>This is the home screen.</p>
        *        <Navigator.Button path="../child">
        *          Navigate to child screen.
@@ -46400,8 +46400,8 @@ The screen with id ${screen.id} will not be added.`) : void 0;
        * import { Navigator } from '@wordpress/components';
        *
        * const MyNavigation = () => (
-       *   <Navigator initialPath="../">
-       *     <Navigator.Screen path="../">
+       *   <Navigator initialPath="../index.html">
+       *     <Navigator.Screen path="../index.html">
        *       <p>This is the home screen.</p>
        *        <Navigator.Button path="../child">
        *          Navigate to child screen.
